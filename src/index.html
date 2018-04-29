@@ -3,13 +3,33 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
-  <title>Stencil Component Starter</title>
-  <script src="/build/mycomponent.js"></script>
+  <title>Xml Viewer Component</title>
+  <script src="/build/xmlviewercomponent.js"></script>
 
 </head>
 <body>
-
-  <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
-
+  <xml-viewer-component xml='<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE recipe>
+<recipe name="хлеб" preptime="5min" cooktime="180min">
+    <title>
+      Простой хлеб
+    </title>
+    <composition>
+      <ingredient amount="3" unit="стакан">Мука</ingredient>
+      <ingredient amount="0.25" unit="грамм">Дрожжи</ingredient>
+      <ingredient amount="1.5" unit="стакан">Тёплая вода</ingredient>
+    </composition>
+    <instructions>
+      <step>
+        Смешать все ингредиенты и тщательно замесить. 
+      </step>
+      <step>
+        Закрыть тканью и оставить на один час в тёплом помещении. 
+      </step>
+      <step>
+        Замесить ещё раз, положить на противень и поставить в духовку.
+      </step>
+    </instructions>
+</recipe>'></xml-viewer-component>
 </body>
 </html>

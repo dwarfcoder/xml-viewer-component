@@ -1,5 +1,5 @@
 exports.config = {
-  namespace: 'mycomponent',
+  namespace: 'xmlviewercomponent',
   outputTargets:[
     { 
       type: 'dist' 
