@@ -15,6 +15,13 @@ You should import CUSTOM_ELEMENTS_SCHEMA in your _app.module.ts_ file:
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 ```
 
+Then add schema section in @NgModule declaration:
+```
+@NgModule({
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+})
+```
+
 ## Usage
 
 Then in your page markup file (i.e. my-page.html, or contacts.html or whatever markup file you need) call to component like this:
