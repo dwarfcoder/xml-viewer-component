@@ -15,41 +15,7 @@ export class XmlViewerComponent {
   }
 
   prepareXml(){
-    // let regex = /&lt;([\w\d]+)/ig;
-    // let regexClose = /&lt;\/([\w\d]+)&gt;/ig;
-    // let regexLt = /(\<)/ig;
-    // let regexRt = /(\>)/ig;
-
-    // let regexAttr = /([\w\d\-\_]+)\=/ig;
-
-    // replace
-    // let xml = null;
-
     let xdoc = Parser.Parse(this.xml);
-
-    // try{
-    //   xml = this.xml
-    //   .replace(regexLt, "&lt;")
-    //   .replace(regexRt, "&gt;")
-
-    //   // replace attributes
-    //   .replace(regexAttr, "<span class='attr'>$1</span>=")
-
-    //   // replace element start
-    //   .replace(regex, `&lt;<span class='element'>$1</span>`)
-
-    //   // replace element end
-    //   .replace(regexClose, "&lt;/<span class='element'>$1</span>&gt;")
-
-    //   // replace tabs and spaces with nonbreakable spaces
-    //   .replace(/^[\s\t]/ig, '&nbsp;');
-    // }
-    // catch(e){
-    //   console.log(e);
-    // }
-
-    // in case parsing fails
-    // return xml || this.xml;
     return xdoc;
   }
 
@@ -129,16 +95,8 @@ export class XmlViewerComponent {
       return null;
     }
 
-    //let arr = [1,2,3,4,5];
     return (
-      // <code innerHTML={xml}></code>
       <code>
-        {/* {arr.map((v) => {
-          return <div>Fuck that {v}</div>
-        })} */}
-        {/* {xdoc.documentElement.childNodes.map((node) => {
-          return (<div>{ node.nodeName }</div>)
-        })} */}
         {this.renderNode(xdoc.documentElement)}
       </code>
     );
