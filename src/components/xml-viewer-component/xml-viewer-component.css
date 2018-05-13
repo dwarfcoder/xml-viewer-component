@@ -1,17 +1,24 @@
 code{
+    margin:.1rem .25rem 1rem .25rem;
+    padding:0;
     color:#767676;
     font-family: monospace, monospace;
 
     text-shadow: 0 1px #fff;
     direction: ltr;
     text-align: left;
-    white-space: pre;
     word-spacing: normal;
     word-break: normal;
     word-wrap: normal;
     line-height: 1.2;
     -moz-tab-size: 2; -o-tab-size: 2; tab-size: 2;
     -webkit-hyphens: none; -moz-hyphens: none; -ms-hyphens: none; hyphens: none;
+}
+
+code ul{
+    list-style-type: none;
+    margin:0;
+    padding-left:1rem;
 }
 
 code span.element{

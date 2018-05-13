@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "sourceMap": true,
     "allowSyntheticDefaultImports": true,
     "allowUnreachableCode": false,
     "declaration": false,
@@ -17,7 +18,8 @@
     "jsxFactory": "h"
   },
   "include": [
-    "src",
+    "src/**/*.ts",
+    "src/**/*.tsx",
     "types/jsx.d.ts"
   ],
   "exclude": [

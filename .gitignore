@@ -6,6 +6,8 @@ www/
 *.log
 *.lock
 *.tmp
+*.js
+*.js.map
 *.tmp.*
 log.txt
 *.sublime-project

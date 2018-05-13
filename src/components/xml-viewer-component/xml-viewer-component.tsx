@@ -1,4 +1,5 @@
 import { Component, Prop } from '@stencil/core';
+import { Parser } from '../../infrastructure/parser';
 
 @Component({
   tag: 'xml-viewer-component',
@@ -14,30 +15,102 @@ export class XmlViewerComponent {
   }
 
   prepareXml(){
-    let regex = /&lt;([\w\d]+)/ig;
-    let regexClose = /&lt;\/([\w\d]+)&gt;/ig;
-    let regexLt = /(\<)/ig;
-    let regexRt = /(\>)/ig;
+    // let regex = /&lt;([\w\d]+)/ig;
+    // let regexClose = /&lt;\/([\w\d]+)&gt;/ig;
+    // let regexLt = /(\<)/ig;
+    // let regexRt = /(\>)/ig;
 
-    let regexAttr = /([\w\d\-\_]+)\=/ig;
+    // let regexAttr = /([\w\d\-\_]+)\=/ig;
 
     // replace
-    let xml = this.xml
-      .replace(regexLt, "&lt;")
-      .replace(regexRt, "&gt;")
+    // let xml = null;
 
-      // replace attributes
-      .replace(regexAttr, "<span class='attr'>$1</span>=")
+    let xdoc = Parser.Parse(this.xml);
 
-      // replace element start
-      .replace(regex, `&lt;<span class='element'>$1</span>`)
+    // try{
+    //   xml = this.xml
+    //   .replace(regexLt, "&lt;")
+    //   .replace(regexRt, "&gt;")
 
-      // replace element end
-      .replace(regexClose, "&lt;/<span class='element'>$1</span>&gt;")
+    //   // replace attributes
+    //   .replace(regexAttr, "<span class='attr'>$1</span>=")
 
-      // replace tabs and spaces with nonbreakable spaces
-      .replace(/^[\s\t]/ig, '&nbsp;');
-    return xml;
+    //   // replace element start
+    //   .replace(regex, `&lt;<span class='element'>$1</span>`)
+
+    //   // replace element end
+    //   .replace(regexClose, "&lt;/<span class='element'>$1</span>&gt;")
+
+    //   // replace tabs and spaces with nonbreakable spaces
+    //   .replace(/^[\s\t]/ig, '&nbsp;');
+    // }
+    // catch(e){
+    //   console.log(e);
+    // }
+
+    // in case parsing fails
+    // return xml || this.xml;
+    return xdoc;
+  }
+
+  renderAttribute(attribute){
+    return(
+      <span>
+        &nbsp;
+        <span class="attr">{attribute.name}</span>
+        <span>="{attribute.value}"</span>
+      </span>
+    )
+  }
+
+  renderNodeValue(nodeValue){
+    if(!nodeValue){
+      return null;
+    }
+
+    if(nodeValue.length > 150){
+      return(
+        <ul>
+          <li>{nodeValue}</li>
+        </ul>
+      )
+    }
+    else{
+      return(
+        <span>{nodeValue}</span>
+      )
+    }
+  }
+
+  // rendering node. This function calls to itself in recursion way in case of child nodes
+  renderNode(node){
+    if(!node){
+      return null;
+    }
+
+    let children = [...node.children];
+    let attributes = [...node.attributes];
+    let nodeValue = node.firstChild ? node.firstChild.nodeValue : null;
+    nodeValue = nodeValue ? nodeValue.trim() : null;
+
+    return(
+      <ul>
+        <li>
+          <span class="element">&lt;</span>
+          <span class="element">{node.nodeName}</span>
+          {attributes.map((a) => this.renderAttribute(a))}
+          <span class="element">&gt;</span>
+
+          {this.renderNodeValue(nodeValue)}
+
+          {children.map((c) => this.renderNode(c))}
+
+          <span class="element">&lt;</span>
+          <span class="element">{node.nodeName}</span>
+          <span class="element">&nbsp;/&gt;</span>
+        </li>
+      </ul>
+    )
   }
 
   render() {
@@ -50,10 +123,24 @@ export class XmlViewerComponent {
       return null;
     }
 
-    let xml = this.prepareXml();
-    console.log(xml);
+    let xdoc = this.prepareXml();
+    
+    if(!xdoc || !xdoc.documentElement.childNodes){
+      return null;
+    }
+
+    //let arr = [1,2,3,4,5];
     return (
-      <code innerHTML={xml}></code>
+      // <code innerHTML={xml}></code>
+      <code>
+        {/* {arr.map((v) => {
+          return <div>Fuck that {v}</div>
+        })} */}
+        {/* {xdoc.documentElement.childNodes.map((node) => {
+          return (<div>{ node.nodeName }</div>)
+        })} */}
+        {this.renderNode(xdoc.documentElement)}
+      </code>
     );
   }
 }
