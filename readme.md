@@ -5,7 +5,7 @@ A simple XML viewer. This component adds markup to your XML
 
 Just place the following line somewere in your index.html:
 ```html
-<script src='https://unpkg.com/xml-viewer-component@0.0.1/dist/xmlviewercomponent.js'></script>
+<script src='https://unpkg.com/xml-viewer-component@0.1.0/dist/xmlviewercomponent.js'></script>
 ```
 
 ### Angular/Ionic Framework
