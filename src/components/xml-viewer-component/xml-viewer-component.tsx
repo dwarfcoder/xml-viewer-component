@@ -105,9 +105,9 @@ export class XmlViewerComponent {
 
           {children.map((c) => this.renderNode(c))}
 
-          <span class="element">&lt;</span>
+          <span class="element">&lt;/</span>
           <span class="element">{node.nodeName}</span>
-          <span class="element">&nbsp;/&gt;</span>
+          <span class="element">&gt;</span>
         </li>
       </ul>
     )
