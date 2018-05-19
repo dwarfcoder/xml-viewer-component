@@ -11,6 +11,7 @@
   "browser": "dist/xmlviewercomponent.js",
   "scripts": {
     "build": "stencil build",
+    "build-es5": "stencil build --es5",
     "dev": "sd concurrent \"stencil build --dev --watch\" \"stencil-dev-server\" ",
     "serve": "stencil-dev-server",
     "start": "npm run dev",

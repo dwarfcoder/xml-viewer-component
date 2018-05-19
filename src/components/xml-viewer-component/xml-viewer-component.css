@@ -23,7 +23,8 @@ code ul{
 
 code span.element{
     font-weight: bold;
-    color: darkred;
+    /* color: darkred; */
+    color:darkred;
 }
 
 code span.attr{
