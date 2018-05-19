@@ -11,7 +11,6 @@ export class XmlViewerComponent {
   @Prop() xml: string;
 
   componentDidLoad() {
-    console.log('The component has been rendered');
   }
 
   prepareXml(){
@@ -92,7 +91,6 @@ export class XmlViewerComponent {
   }
 
   render() {
-    console.log('rendered');
     if(this.xml === null || this.xml === undefined){
       return null;
     }
@@ -106,7 +104,7 @@ export class XmlViewerComponent {
       xdoc = this.prepareXml();
     }
     catch(e){
-
+      console.log(e);
     }
     
     if(!xdoc || !xdoc.documentElement.childNodes){
