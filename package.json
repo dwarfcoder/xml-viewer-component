@@ -1,6 +1,6 @@
 {
   "name": "xml-viewer-component",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Xml Viewer Component",
   "main": "dist/xmlviewercomponent.js",
   "types": "dist/types/components.d.ts",
