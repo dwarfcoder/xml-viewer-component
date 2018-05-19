@@ -47,24 +47,12 @@ export class XmlViewerComponent {
     }
   }
 
-  // Rest operator transpiles into sequence.slice() - but sequence is not an array. So I made it by myself
-  // toArray(nodes){
-  //   var arr = [];
-  //   for(let i=0;i<nodes.length;i++){
-  //     arr.push(nodes[i]);
-  //   }
-
-  //   return arr;
-  // }
-
   // rendering node. This function calls to itself in recursion way in case of child nodes
   renderNode(node){
     if(!node){
       return null;
     }
 
-    // let children = this.toArray(node.children);//[...node.children];
-    // let attributes = this.toArray(node.attributes);//[...node.attributes];
     let children = [...node.children];
     let attributes = [...node.attributes];
     let nodeValue = node.firstChild ? node.firstChild.nodeValue : null;
