@@ -18,7 +18,9 @@
     "test": "jest --no-cache",
     "test.watch": "jest --watch --no-cache"
   },
-  "dependencies": {},
+  "dependencies": {
+    "npm": "^6.4.1"
+  },
   "devDependencies": {
     "@stencil/core": "^0.7.26",
     "@stencil/dev-server": "latest",
