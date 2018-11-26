@@ -32,7 +32,7 @@
     "type": "git",
     "url": "git+https://github.com/dwarfcoder/xml-viewer-component.git"
   },
-  "author": "Ionic Team",
+  "author": "Aleks Solntseff",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/dwarfcoder/xml-viewer-component"
