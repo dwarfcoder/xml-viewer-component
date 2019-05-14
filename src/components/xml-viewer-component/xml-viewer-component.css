@@ -21,10 +21,15 @@ code ul{
     padding-left:1rem;
 }
 
-code span.element{
+code div.element{
     font-weight: bold;
-    /* color: darkred; */
     color:darkred;
+    display:inline-block;
+}
+
+code div.element-content {
+    font-weight: normal;
+    display:inline-block;
 }
 
 code span.attr{
@@ -32,6 +37,10 @@ code span.attr{
     color: #535353;
 }
 
-code span.comment{
+code span.attr-value{
+    font-weight: normal;
+}
+
+code div.comment{
     color: darkgreen;
 }

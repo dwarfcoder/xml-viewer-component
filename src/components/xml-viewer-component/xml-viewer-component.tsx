@@ -32,8 +32,7 @@ export class XmlViewerComponent {
     return(
       <span>
         &nbsp;
-        <span class="attr">{attribute.name}</span>
-        <span>="{attribute.value}"</span>
+        <span class="attr">{attribute.name}="<span class="attr-value">{attribute.value}</span>"</span>
       </span>
     )
   }
@@ -75,18 +74,17 @@ export class XmlViewerComponent {
     return(
       <ul>
         <li>
-          <span class="element">&lt;</span>
-          <span class="element">{node.nodeName}</span>
-          {attributes.map((a) => this.renderAttribute(a))}
-          <span class="element">&gt;</span>
+          <div class="element">
+            &lt;{node.nodeName}
+            { attributes.map(a => this.renderAttribute(a)) }
+            &gt;
+          </div>
 
-          {this.renderNodeValue(nodeValue)}
+          <div class="element-content">{ this.renderNodeValue(nodeValue) }</div>
 
-          {children.map((c) => this.renderNode(c))}
+          { children.map(c => this.renderNode(c)) }
 
-          <span class="element">&lt;/</span>
-          <span class="element">{node.nodeName}</span>
-          <span class="element">&gt;</span>
+          <div class="element">&lt;/{node.nodeName}&gt;</div>
         </li>
       </ul>
     )

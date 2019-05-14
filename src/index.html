@@ -8,30 +8,38 @@
 
 </head>
 <body>
-  <h1>Xml Viewer - 2</h1>
-  <div>
-  <xml-viewer-component xml='<?xml version="1.0" encoding="utf-8"?>
-<recipe name="хлеб" preptime="5min" cooktime="180min">
-    <title>
-      Простой хлеб
-    </title>
-    <composition>
-      <ingredient amount="3" unit="стакан">Мука</ingredient>
-      <ingredient amount="0.25" unit="грамм">Дрожжи</ingredient>
-      <ingredient amount="1.5" unit="стакан">Тёплая вода</ingredient>
-    </composition>
-    <instructions>
-      <step>
-        Смешать все ингредиенты и тщательно замесить.
-      </step>
-      <step>
-        Закрыть тканью и оставить на один час в тёплом помещении.
-      </step>
-      <step>
-        Замесить ещё раз, положить на противень и поставить в духовку.
-      </step>
-      <!-- Some comment goes here -->
-    </instructions>
-</recipe>'></xml-viewer-component></body></div>
+  <h1>Xml Viewer</h1>
+  <p>
+      <h2>Really simple example</h2>
+      <xml-viewer-component xml='<?xml version="1.0" encoding="utf-8"?><root>Hello, world!</root>'></xml-viewer-component>
+  </p>
+
+  <p>
+    <h2>Recipe example</h2>
+    <xml-viewer-component xml='<?xml version="1.0" encoding="utf-8"?>
+      <recipe name="bread" preptime="5min" cooktime="180min" complexity="medium">
+          <title>
+            Bread
+          </title>
+          <composition>
+            <ingredient amount="3" unit="cup">Flour</ingredient>
+            <ingredient amount="0.25" unit="gram">Yeast</ingredient>
+            <ingredient amount="1.5" unit="cup">Warm water</ingredient>
+          </composition>
+          <instructions>
+            <step>
+              Mix all ingredients and knead thoroughly
+            </step>
+            <step>
+              Cover with a cloth and leave for one hour in a warm place
+            </step>
+            <step>
+              Knead again, put on a baking sheet and put in the oven
+            </step>
+            <!-- Some comment goes here -->
+          </instructions>
+      </recipe>'>
+    </xml-viewer-component>
+  </p>
 </body>
 </html>

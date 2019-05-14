@@ -15,17 +15,19 @@
     "dev": "sd concurrent \"stencil build --dev --watch\" \"stencil-dev-server\" ",
     "serve": "stencil-dev-server",
     "start": "npm run dev",
-    "test": "jest --no-cache",
+    "test": "stencil test --e2e",
     "test.watch": "jest --watch --no-cache"
   },
-  "dependencies": {
-    "npm": "^6.8.0"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "@stencil/core": "0.18.0",
+    "@stencil/core": "0.18.1",
     "@stencil/dev-server": "latest",
     "@stencil/utils": "latest",
-    "jest": "^24.1.0"
+    "@types/jest": "23.3.14",
+    "@types/puppeteer": "1.12.4",
+    "jest": "23.6.0",
+    "jest-cli": "23.6.0",
+    "puppeteer": "1.11.0"
   },
   "repository": {
     "type": "git",
