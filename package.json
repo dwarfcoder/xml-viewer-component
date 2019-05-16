@@ -1,7 +1,8 @@
 {
   "name": "xml-viewer-component",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Xml Viewer Component",
+  "keywords": ["xml", "web-component", "xml-viewer"],
   "main": "dist/xmlviewercomponent.js",
   "types": "dist/types/components.d.ts",
   "collection": "dist/collection/collection-manifest.json",
