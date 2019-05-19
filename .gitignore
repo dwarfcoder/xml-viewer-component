@@ -20,6 +20,7 @@ package-lock.json
 .versions/
 node_modules/
 $RECYCLE.BIN/
+.stencil
 
 .DS_Store
 Thumbs.db
