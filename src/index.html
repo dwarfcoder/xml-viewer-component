@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
   <title>Xml Viewer Component</title>
-  <script src="/build/xmlviewercomponent.js"></script>
-
+  <script type="module" src="/build/xmlviewercomponent.esm.js"></script>
+  <script nomodule src="/build/xmlviewercomponent.js"></script>
 </head>
 <body>
   <h1>Xml Viewer</h1>
@@ -13,7 +13,6 @@
       <h2>Really simple example</h2>
       <xml-viewer-component xml='<?xml version="1.0" encoding="utf-8"?><root>Hello, world!</root>'></xml-viewer-component>
   </p>
-
   <p>
     <h2>Recipe example</h2>
     <xml-viewer-component xml='<?xml version="1.0" encoding="utf-8"?>

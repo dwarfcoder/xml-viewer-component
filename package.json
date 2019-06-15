@@ -1,9 +1,19 @@
 {
   "name": "xml-viewer-component",
   "version": "0.1.8",
-  "description": "Xml Viewer Component",
-  "keywords": ["xml", "web-component", "xml-viewer"],
-  "main": "dist/xmlviewercomponent.js",
+  "description": "Xml Viewer Component - a simple XML prettifier",
+  "keywords": [
+    "xml",
+    "web-component",
+    "xml-viewer",
+    "view xml",
+    "pretiffy xml",
+    "xml prettifier"
+  ],
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "es2015": "dist/esm/index.mjs",
+  "es2017": "dist/esm/index.mjs",
   "types": "dist/types/components.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "files": [
@@ -21,14 +31,14 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@stencil/core": "0.18.1",
+    "@stencil/core": "1.0.4",
     "@stencil/dev-server": "latest",
     "@stencil/utils": "latest",
     "@types/jest": "23.3.14",
     "@types/puppeteer": "1.12.4",
     "jest": "23.6.0",
     "jest-cli": "23.6.0",
-    "puppeteer": "1.11.0"
+    "puppeteer": "^1.17.0"
   },
   "repository": {
     "type": "git",

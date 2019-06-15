@@ -5,29 +5,16 @@
  */
 
 
-import '@stencil/core';
-
-
+import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 
 export namespace Components {
-
   interface XmlViewerComponent {
     'xml': string;
-  }
-  interface XmlViewerComponentAttributes extends StencilHTMLAttributes {
-    'xml'?: string;
   }
 }
 
 declare global {
-  interface StencilElementInterfaces {
-    'XmlViewerComponent': Components.XmlViewerComponent;
-  }
-
-  interface StencilIntrinsicElements {
-    'xml-viewer-component': Components.XmlViewerComponentAttributes;
-  }
 
 
   interface HTMLXmlViewerComponentElement extends Components.XmlViewerComponent, HTMLStencilElement {}
@@ -35,22 +22,28 @@ declare global {
     prototype: HTMLXmlViewerComponentElement;
     new (): HTMLXmlViewerComponentElement;
   };
-
   interface HTMLElementTagNameMap {
-    'xml-viewer-component': HTMLXmlViewerComponentElement
-  }
-
-  interface ElementTagNameMap {
     'xml-viewer-component': HTMLXmlViewerComponentElement;
   }
-
-
-  export namespace JSX {
-    export interface Element {}
-    export interface IntrinsicElements extends StencilIntrinsicElements {
-      [tagName: string]: any;
-    }
-  }
-  export interface HTMLAttributes extends StencilHTMLAttributes {}
-
 }
+
+declare namespace LocalJSX {
+  interface XmlViewerComponent extends JSXBase.HTMLAttributes<HTMLXmlViewerComponentElement> {
+    'xml'?: string;
+  }
+
+  interface IntrinsicElements {
+    'xml-viewer-component': XmlViewerComponent;
+  }
+}
+
+export { LocalJSX as JSX };
+
+
+declare module "@stencil/core" {
+  export namespace JSX {
+    interface IntrinsicElements extends LocalJSX.IntrinsicElements {}
+  }
+}
+
+
