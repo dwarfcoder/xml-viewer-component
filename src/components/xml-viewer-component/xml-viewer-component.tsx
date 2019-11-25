@@ -14,7 +14,7 @@ export class XmlViewerComponent {
   }
 
   // for FireFox and maybe Edge.
-  toArray(obj){
+  toArray(obj) {
     let arr = [];
     for(let i=0;i<obj.length;i++){
       arr.push(obj[i]);
@@ -23,13 +23,13 @@ export class XmlViewerComponent {
     return arr;
   }
 
-  prepareXml(){
+  prepareXml() {
     let xdoc = Parser.Parse(this.xml.trim());
     return xdoc;
   }
 
-  renderAttribute(attribute){
-    return(
+  renderAttribute(attribute) {
+    return (
       <span>
         &nbsp;
         <span class="attr">{attribute.name}="<span class="attr-value">{attribute.value}</span>"</span>
@@ -37,28 +37,27 @@ export class XmlViewerComponent {
     )
   }
 
-  renderNodeValue(nodeValue){
-    if(!nodeValue){
+  renderNodeValue(nodeValue) {
+    if(!nodeValue) {
       return null;
     }
 
-    if(nodeValue.length > 150){
-      return(
+    if(nodeValue.length > 150) {
+      return (
         <ul>
           <li>{nodeValue}</li>
         </ul>
       )
     }
-    else{
-      return(
-        <span>{nodeValue}</span>
-      )
-    }
+
+    return (
+      <span>{nodeValue}</span>
+    )
   }
 
   // rendering node. This function calls to itself in recursion way in case of child nodes
-  renderNode(node){
-    if(!node){
+  renderNode(node) {
+    if (!node) {
       return null;
     }
 
@@ -71,7 +70,7 @@ export class XmlViewerComponent {
     let nodeValue = node.firstChild ? node.firstChild.nodeValue : null;
     nodeValue = nodeValue ? nodeValue.trim() : null;
 
-    return(
+    return (
       <ul>
         <li>
           <div class="element">
@@ -100,14 +99,14 @@ export class XmlViewerComponent {
     }
 
     let xdoc = null;
-    try{
+    try {
       xdoc = this.prepareXml();
     }
     catch(e){
-      console.log(e);
+      console.error(e);
     }
     
-    if(!xdoc || !xdoc.documentElement.childNodes){
+    if (!xdoc || !xdoc.documentElement.childNodes) {
       return(
         <code>
           {this.xml}

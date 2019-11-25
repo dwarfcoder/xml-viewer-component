@@ -67,6 +67,7 @@ import 'xml-viewer-component';
     async onAction() {
         await this.myTestComponent.nativeElement.render();
     }
-}```
+}
+```
 
 To be continued
