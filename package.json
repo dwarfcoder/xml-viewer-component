@@ -1,6 +1,6 @@
 {
   "name": "xml-viewer-component",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "Xml Viewer Component - a simple XML prettifier",
   "keywords": [
     "xml",
@@ -34,10 +34,10 @@
     "@stencil/core": "1.0.4",
     "@stencil/dev-server": "latest",
     "@stencil/utils": "latest",
-    "@types/jest": "23.3.14",
+    "@types/jest": "24.0.23",
     "@types/puppeteer": "1.12.4",
-    "jest": "23.6.0",
-    "jest-cli": "23.6.0",
+    "jest": "24.8.0",
+    "jest-cli": "24.8.0",
     "puppeteer": "^1.17.0"
   },
   "repository": {

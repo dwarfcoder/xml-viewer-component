@@ -64,7 +64,7 @@ export class XmlViewerComponent {
 
     // Note: FireFox thinks node.children is an array but it's not. FF transpiles next two lines of code (not comments)
     // into node.children.slice() but as I said before, node.children is not an array.
-    // It's ... So I have to convert it to array manually (yeah I know it's a stupid workaround)
+    // It's ... So I have to convert it into an array manually (yeah I know it's a stupid workaround)
     // TODO: I have to figure oute how to solve this problem properly
     let children = this.toArray(node.children); //[...node.children];
     let attributes = this.toArray(node.attributes); //[...node.attributes];
