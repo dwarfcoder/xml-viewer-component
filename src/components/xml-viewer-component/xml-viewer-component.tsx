@@ -13,6 +13,14 @@ export class XmlViewerComponent {
   componentDidLoad() {
   }
 
+  public get Xml() : string {
+    return this.xml;
+  }
+
+  public set Xml(xml: string) {
+    this.xml = xml;
+  }
+
   // for FireFox and maybe Edge.
   toArray(obj) {
     let arr = [];
@@ -37,53 +45,108 @@ export class XmlViewerComponent {
     )
   }
 
-  renderNodeValue(nodeValue) {
+  renderNodeValue(nodeValue: string) {
     if(!nodeValue) {
       return null;
     }
 
-    if(nodeValue.length > 150) {
+    const val = unescape(nodeValue.trim());
+
+    if (val.length === 0) {
+      return null;
+    }
+
+    if(val.length > 150) {
       return (
         <ul>
-          <li>{nodeValue}</li>
+          <li>{ val }</li>
         </ul>
       )
     }
 
     return (
-      <span>{nodeValue}</span>
+      <span>{ val }</span>
     )
   }
 
-  // rendering node. This function calls to itself in recursion way in case of child nodes
-  renderNode(node) {
+  renderComment(comment: Comment) {
+    if (!comment) {
+      return null;
+    }
+
+    return (
+      <div class="comment">
+        &lt;--&nbsp;{comment.nodeValue.trim()}&nbsp;--&gt;
+      </div>
+    )
+  }
+
+  renderCData(node: CDATASection) {
     if (!node) {
       return null;
     }
 
-    // Note: FireFox thinks node.children is an array but it's not. FF transpiles next two lines of code (not comments)
-    // into node.children.slice() but as I said before, node.children is not an array.
-    // It's ... So I have to convert it into an array manually (yeah I know it's a stupid workaround)
-    // TODO: I have to figure oute how to solve this problem properly
-    let children = this.toArray(node.children); //[...node.children];
-    let attributes = this.toArray(node.attributes); //[...node.attributes];
-    let nodeValue = node.firstChild ? node.firstChild.nodeValue : null;
+    const data: string = unescape(`<![CDATA[${node.textContent.trim()}]]>`);
+    return (
+      <ul>
+        <li>
+          <div>{data}</div>
+        </li>
+      </ul>
+    )
+  }
+
+  renderNode(node: Node) {
+    if (!node) {
+      return null;
+    }
+
+    if (node.nodeName === "#comment") {
+      return this.renderComment(node as Comment);
+    }
+
+    if (node.nodeName === `#cdata-section`) {
+      return this.renderCData(node as CDATASection);
+    }
+
+    return null;
+  }
+
+  // rendering node. This function calls to itself in recursion way in case of child nodes
+  renderElement(element: HTMLElement) {
+    if (!element) {
+      return null;
+    }
+
+    if (element.nodeName === "#comment") {
+      return (
+        <span>comment</span>
+      )
+    }
+
+    // element.attributes, childNodes and children has no iterator so I have to turn it into an array
+    const attributes = this.toArray(element.attributes);
+    const childNodes: Node[] = this.toArray(element.childNodes);
+    const children: HTMLElement[] = this.toArray(element.children);
+
+    let nodeValue = element.firstChild ? element.firstChild.nodeValue : null;
     nodeValue = nodeValue ? nodeValue.trim() : null;
 
     return (
       <ul>
         <li>
           <div class="element">
-            &lt;{node.nodeName}
+            &lt;{element.nodeName}
             { attributes.map(a => this.renderAttribute(a)) }
             &gt;
           </div>
 
           <div class="element-content">{ this.renderNodeValue(nodeValue) }</div>
 
-          { children.map(c => this.renderNode(c)) }
+          { children.map(c => this.renderElement(c)) }
+          { childNodes.map(c => this.renderNode(c)) }
 
-          <div class="element">&lt;/{node.nodeName}&gt;</div>
+          <div class="element">&lt;/{element.nodeName}&gt;</div>
         </li>
       </ul>
     )
@@ -98,7 +161,7 @@ export class XmlViewerComponent {
       return null;
     }
 
-    let xdoc = null;
+    let xdoc: XMLDocument = null;
     try {
       xdoc = this.prepareXml();
     }
@@ -117,7 +180,7 @@ export class XmlViewerComponent {
     return (
       <p>
         <code>
-          {this.renderNode(xdoc.documentElement)}
+          {this.renderElement(xdoc.documentElement)}
         </code>
       </p>
     );

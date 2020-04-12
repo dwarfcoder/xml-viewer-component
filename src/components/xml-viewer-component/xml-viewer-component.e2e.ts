@@ -1,3 +1,4 @@
+import { newSpecPage } from '@stencil/core/testing';
 import { XmlViewerComponent } from './xml-viewer-component';
 import { newE2EPage } from '@stencil/core/testing';
 
@@ -18,6 +19,24 @@ it('Should render valuable string', async () => {
   const el = await page.find('xml-viewer-component');
   expect(el).not.toBeNull();
 
+  debugger;
+
   const elm = await page.find('xml-viewer-component >>> div.element-content');
   expect(elm).toEqualText('Hello, world!');
+})
+
+it('Should render valuable string with CDATA section', async () => {
+  const page = await newSpecPage({
+    components: [XmlViewerComponent],
+    html: `<xml-viewer-component xml='<?xml version="1.0" encoding="utf-8"?><root><![CDATA[Hello, world!]]></root>'></xml-viewer-component>`,
+  });
+  expect(page.root).toEqualHtml(`
+  <xml-viewer-component xml="<?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?><root><![CDATA[Hello, world!]]></root>">
+     <mock:shadow-root>
+       <code>
+         &lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;root&gt;&lt;![CDATA[Hello, world!]]&gt;&lt;/root&gt;
+       </code>
+     </mock:shadow-root>
+   </xml-viewer-component>
+  `);
 })

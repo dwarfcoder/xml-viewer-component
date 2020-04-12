@@ -1,6 +1,6 @@
 {
   "name": "xml-viewer-component",
-  "version": "0.1.11",
+  "version": "0.2.1",
   "description": "Xml Viewer Component - a simple XML prettifier",
   "keywords": [
     "xml",
@@ -19,26 +19,27 @@
   "files": [
     "dist/"
   ],
-  "browser": "dist/xmlviewercomponent.js",
   "scripts": {
     "build": "stencil build",
     "build-es5": "stencil build --es5",
     "dev": "sd concurrent \"stencil build --dev --watch\" \"stencil-dev-server\" ",
     "serve": "stencil-dev-server",
     "start": "npm run dev",
-    "test": "stencil test --e2e",
-    "test.watch": "jest --watch --no-cache"
+    "test": "stencil test --spec",
+    "test.watch": "stencil test --spec --watch",
+    "test.e2e": "stencil test --e2e"
   },
   "dependencies": {},
   "devDependencies": {
-    "@stencil/core": "1.8.1",
+    "@stencil/core": "1.12.3",
     "@stencil/dev-server": "latest",
     "@stencil/utils": "latest",
-    "@types/jest": "24.0.23",
+    "@types/jest": "24.9.1",
     "@types/puppeteer": "1.20.3",
     "jest": "^24.9.0",
     "jest-cli": "24.9.0",
-    "puppeteer": "1.20.0"
+    "puppeteer": "1.20.0",
+    "workbox-build": "4.3.1"
   },
   "repository": {
     "type": "git",
@@ -52,9 +53,9 @@
   "homepage": "https://github.com/dwarfcoder/xml-viewer-component",
   "jest": {
     "transform": {
-      "^.+\\.(ts|tsx)$": "<rootDir>/node_modules/@stencil/core/testing/jest.preprocessor.js"
+      "^.+\\.(ts|tsx)$": "<rootDir>/node_modules/@stencil/core/testing/jest-preprocessor.js"
     },
-    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(tsx?|jsx?)$",
+    "testRegex": "(/__tests__/.*|\\.(test|spec|e2e))\\.(tsx?|jsx?)$",
     "moduleFileExtensions": [
       "ts",
       "tsx",
