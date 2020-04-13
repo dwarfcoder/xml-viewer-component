@@ -12,7 +12,6 @@ www/
 log.txt
 *.sublime-project
 *.sublime-workspace
-package-lock.json
 
 .idea/
 .vscode/
