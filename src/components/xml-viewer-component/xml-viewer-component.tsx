@@ -22,7 +22,7 @@ export class XmlViewerComponent {
   }
 
   // for FireFox and maybe Edge.
-  toArray(obj) {
+  private toArray(obj) {
     let arr = [];
     for(let i=0;i<obj.length;i++){
       arr.push(obj[i]);
@@ -31,12 +31,12 @@ export class XmlViewerComponent {
     return arr;
   }
 
-  prepareXml() {
+  private prepareXml() {
     let xdoc = Parser.Parse(this.xml.trim());
     return xdoc;
   }
 
-  renderAttribute(attribute) {
+  private renderAttribute(attribute) {
     return (
       <span>
         &nbsp;
@@ -45,7 +45,7 @@ export class XmlViewerComponent {
     )
   }
 
-  renderNodeValue(nodeValue: string) {
+  private renderNodeValue(nodeValue: string) {
     if(!nodeValue) {
       return null;
     }
@@ -69,7 +69,7 @@ export class XmlViewerComponent {
     )
   }
 
-  renderComment(comment: Comment) {
+  private renderComment(comment: Comment) {
     if (!comment) {
       return null;
     }
@@ -81,7 +81,7 @@ export class XmlViewerComponent {
     )
   }
 
-  renderCData(node: CDATASection) {
+  private renderCData(node: CDATASection) {
     if (!node) {
       return null;
     }
@@ -96,7 +96,7 @@ export class XmlViewerComponent {
     )
   }
 
-  renderNode(node: Node) {
+  private renderNode(node: Node) {
     if (!node) {
       return null;
     }
@@ -113,7 +113,7 @@ export class XmlViewerComponent {
   }
 
   // rendering node. This function calls to itself in recursion way in case of child nodes
-  renderElement(element: HTMLElement) {
+  private renderElement(element: HTMLElement) {
     if (!element) {
       return null;
     }
