@@ -2,7 +2,7 @@ import { NodeRenderer } from "./node-renderer";
 import { h } from "@stencil/core";
 
 export class CDataRenderer implements NodeRenderer {
-    render(node: CDATASection) {
+    render(node: Node) {        
         if (!node) {
         return null;
         }

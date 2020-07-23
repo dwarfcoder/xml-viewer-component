@@ -2,7 +2,8 @@ import { NodeRenderer } from "./node-renderer";
 import { h } from "@stencil/core";
 
 export class CommentRenderer implements NodeRenderer {
-    render(comment: Comment) {
+    render(node: Node) {
+        const comment = node as Comment;
         if (!comment) {
             return null;
         }
