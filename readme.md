@@ -1,6 +1,6 @@
 # Xml Viewer Component
 
-A simple XML viewer. This component adds markup to your XML
+A simple XML viewer. This component adds markup to your XML. Now supports CDATA section.
 
 ## Installation
 
