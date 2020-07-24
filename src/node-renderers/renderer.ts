@@ -23,7 +23,7 @@ export class Renderer {
         }
     
         if (node.nodeName.toLowerCase() === "#comment") {
-            let cr = this.renderers.find(e => e as CommentRenderer);
+            let cr = this.renderers.find(e => e instanceof CommentRenderer);
             if(!cr) {
                 cr = new CommentRenderer();
                 this.renderers.push(cr);
@@ -33,7 +33,7 @@ export class Renderer {
         }
     
         if (node.nodeName.toLowerCase() === `#cdata-section`) {
-            let r = this.renderers.find(e => e as CDataRenderer);
+            let r = this.renderers.find(e => e instanceof CDataRenderer);
             if(!r) {
                 r = new CDataRenderer();
                 this.renderers.push(r);
