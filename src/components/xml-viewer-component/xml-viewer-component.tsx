@@ -1,4 +1,4 @@
-import { Component, Prop, h, Method, Watch } from '@stencil/core';
+import { Component, Prop, h, Watch } from '@stencil/core';
 import { Parser } from '../../infrastructure/parser';
 import { Renderer } from '../../node-renderers/renderer';
 
