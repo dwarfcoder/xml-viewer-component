@@ -1,4 +1,4 @@
-import { Component, Prop, h } from '@stencil/core';
+import { Component, Prop, h, Watch } from '@stencil/core';
 import { Parser } from '../../infrastructure/parser';
 import { Renderer } from '../../node-renderers/renderer';
 
@@ -19,12 +19,9 @@ export class XmlViewerComponent {
   componentDidLoad() {
   }
 
-  public get Xml() : string {
-    return this.xml;
-  }
-
-  public set Xml(xml: string) {
-    this.xml = xml;
+  @Watch('xml')
+  xmlPropChanged() {
+    this.render();
   }
 
   // for FireFox and maybe Edge.

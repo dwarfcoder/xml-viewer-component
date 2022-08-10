@@ -2,10 +2,10 @@ export class Parser{
     public static Parse(xmlstr: string){
         if(typeof DOMParser !== 'undefined'){
 
-            let domDoc = (new DOMParser()).parseFromString(xmlstr, 'application/xml');
+            let domDoc : XMLDocument = (new DOMParser()).parseFromString(xmlstr, 'text/xml');
 
             // let's check for errors
-            if(domDoc.documentElement.nodeName == "parsererror"){
+            if(domDoc.querySelector('parsererror')) {
                 throw new Error('XML parsing error');
             }
 
