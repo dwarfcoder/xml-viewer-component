@@ -11,7 +11,7 @@ export class CDataRenderer implements NodeRenderer {
         return (
         <ul>
             <li>
-            <div>{data}</div>
+                <div class="cdata">{data}</div>
             </li>
         </ul>
         )

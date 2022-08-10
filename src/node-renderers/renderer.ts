@@ -30,9 +30,7 @@ export class Renderer {
             }
 
             return cr;
-        }
-    
-        if (node.nodeName.toLowerCase() === `#cdata-section`) {
+        } else if (node.nodeName.toLowerCase() === `#cdata-section`) {
             let r = this.renderers.find(e => e instanceof CDataRenderer);
             if(!r) {
                 r = new CDataRenderer();
