@@ -5,7 +5,7 @@ A simple XML viewer. This component adds markup to your XML. Now supports CDATA 
 ## Installation
 
 * Run *npm install xml-web-component --save*
-* Put a script tag `<script src='node_modules/xml-web-component/dist/xmlwebcomponent.js'></script>` in the head of your index.html
+* Put a script tag `<script src='node_modules/xml-viewer-component/dist/xmlviewercomponent.js'></script>` in the head of your index.html
 * Then you can use the element anywhere in your template, JSX, html etc.
 
 ## Component Methods and Properties
@@ -22,13 +22,13 @@ Usage:
 const xmlviewer: XmlViewerComponent;
 
 // Set new data
-xmlviewer.Xml = `<?xml version="1.0" encoding="utf-8"?>
+xmlviewer.xml = `<?xml version="1.0" encoding="utf-8"?>
       <root>
           <name required="true">Test XML data</name>
       </root>`;
 
 // Get xml data
-const xmlData: string = xmlviewer.Xml;
+const xmlData: string = xmlviewer.xml;
 ```
 
 ## Using with frameworks
