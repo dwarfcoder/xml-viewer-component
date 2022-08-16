@@ -4,7 +4,7 @@ A simple XML viewer. This component adds markup to your XML. Now supports CDATA 
 
 ## Installation
 
-* Run *npm install xml-web-component --save*
+* Run *npm install xml-viewer-component --save*
 * Put a script tag `<script src='node_modules/xml-viewer-component/dist/xmlviewercomponent.js'></script>` in the head of your index.html
 * Then you can use the element anywhere in your template, JSX, html etc.
 
