@@ -7,6 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface XmlViewerComponent {
+        "useUnescapedNodeValue": boolean;
         "xml": string;
     }
 }
@@ -23,6 +24,7 @@ declare global {
 }
 declare namespace LocalJSX {
     interface XmlViewerComponent {
+        "useUnescapedNodeValue"?: boolean;
         "xml"?: string;
     }
     interface IntrinsicElements {

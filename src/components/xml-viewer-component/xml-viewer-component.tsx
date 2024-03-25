@@ -16,11 +16,18 @@ export class XmlViewerComponent {
 
   @Prop() xml: string;
 
+  @Prop() useUnescapedNodeValue: boolean = true;
+
   componentDidLoad() {
   }
 
   @Watch('xml')
   xmlPropChanged() {
+    this.render();
+  }
+
+  @Watch('useUnescapedNodeValue')
+  useUnescapedNodeValuePropChanged() {
     this.render();
   }
 
@@ -53,7 +60,7 @@ export class XmlViewerComponent {
       return null;
     }
 
-    const val = unescape(nodeValue.trim());
+    const val = this.useUnescapedNodeValue ? unescape(nodeValue.trim()) : nodeValue.trim();
 
     if (val.length === 0) {
       return null;
