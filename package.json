@@ -1,6 +1,6 @@
 {
   "name": "xml-viewer-component",
-  "version": "0.3.3",
+  "version": "0.4.0",
   "description": "Xml Viewer Component - a simple XML prettifier",
   "keywords": [
     "xml",
