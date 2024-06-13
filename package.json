@@ -1,6 +1,6 @@
 {
   "name": "xml-viewer-component",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Xml Viewer Component - a simple XML prettifier",
   "keywords": [
     "xml",
@@ -37,7 +37,7 @@
     "@types/jest": "24.9.1",
     "@types/puppeteer": "1.20.3",
     "jest": "^27.0.3",
-    "jest-cli": "29.1.2",
+    "jest-cli": "^27.4.5",
     "puppeteer": "1.20.0",
     "workbox-build": "4.3.1"
   },
