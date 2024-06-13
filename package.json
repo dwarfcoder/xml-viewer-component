@@ -1,6 +1,6 @@
 {
   "name": "xml-viewer-component",
-  "version": "0.4.0",
+  "version": "0.4.2",
   "description": "Xml Viewer Component - a simple XML prettifier",
   "keywords": [
     "xml",
@@ -30,16 +30,17 @@
     "test.e2e": "stencil test --e2e"
   },
   "devDependencies": {
-    "@stencil/angular-output-target": "^0.4.0",
-    "@stencil/core": "2.17.3",
+    "@stencil/angular-output-target": "^0.8.4",
+    "@stencil/core": "4.18.3",
     "@stencil/dev-server": "latest",
     "@stencil/utils": "latest",
-    "@types/jest": "24.9.1",
-    "@types/puppeteer": "1.20.3",
-    "jest": "^27.0.3",
-    "jest-cli": "29.1.2",
-    "puppeteer": "1.20.0",
-    "workbox-build": "4.3.1"
+    "@types/jest": "29.5.12",
+    "@types/puppeteer": "7.0.4",
+    "jest": "^29.7.0",
+    "jest-cli": "^29.7.0",
+    "puppeteer": "22.11.0",
+    "typescript": "^5.4.5",
+    "workbox-build": "7.1.1"
   },
   "repository": {
     "type": "git",

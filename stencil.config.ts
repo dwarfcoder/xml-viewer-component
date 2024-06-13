@@ -4,7 +4,7 @@ import { angularOutputTarget } from '@stencil/angular-output-target';
 export const config: Config = {
   namespace: 'xmlviewercomponent',
   srcDir: 'src',
-  buildEs5: false,
+  buildEs5: 'prod',
   enableCache: true,
 
   outputTargets: [
